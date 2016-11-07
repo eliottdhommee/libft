@@ -6,7 +6,7 @@
 /*   By: edhommee <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/07 14:22:54 by edhommee          #+#    #+#             */
-/*   Updated: 2016/11/07 14:28:59 by edhommee         ###   ########.fr       */
+/*   Updated: 2016/11/07 17:05:10 by edhommee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,9 @@
 
 char		*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 {
-	char    *result;
-	int     i;
+	char	*result;
+	int		i;
+
 	i = 0;
 	if (!s || !f)
 		return (NULL);

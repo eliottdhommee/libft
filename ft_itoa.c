@@ -6,7 +6,7 @@
 /*   By: edhommee <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/07 09:18:05 by edhommee          #+#    #+#             */
-/*   Updated: 2016/11/07 15:59:26 by edhommee         ###   ########.fr       */
+/*   Updated: 2016/11/07 17:04:37 by edhommee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,7 +60,7 @@ static void		ft_itoa_intermediate(int n, char *str, int size)
 	ft_reverse(str, size);
 }
 
-char	*ft_itoa(int n)
+char			*ft_itoa(int n)
 {
 	int		i;
 	int		tmp;
