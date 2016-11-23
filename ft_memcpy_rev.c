@@ -1,34 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strdup.c                                        :+:      :+:    :+:   */
+/*   ft_memcpy_rev.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: edhommee <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/11/07 09:33:30 by edhommee          #+#    #+#             */
-/*   Updated: 2016/11/21 12:56:12 by edhommee         ###   ########.fr       */
+/*   Created: 2016/11/21 11:26:26 by edhommee          #+#    #+#             */
+/*   Updated: 2016/11/21 11:27:23 by edhommee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strdup(const char *src)
+void	*ft_memcpy_rev(void *dst, const void *src, size_t len)
 {
-	char	*s2;
-	int		i;
+	char	*temp1;
+	char	*temp2;
 
-	i = 0;
-	while (src[i] != '\0')
-		i++;
-	s2 = (char*)malloc(sizeof(char) * (i + 1));
-	i = 0;
-	if (!s2)
-		return (NULL);
-	while (src[i] != '\0')
-	{
-		s2[i] = src[i];
-		i++;
-	}
-	s2[i] = '\0';
-	return (s2);
+	if (!len || dst == src)
+		return (dst);
+	temp1 = (char *)dst;
+	temp2 = (char *)src;
+	while (len--)
+		temp1[len] = temp2[len];
+	return (dst);
 }

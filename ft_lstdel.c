@@ -1,34 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strdup.c                                        :+:      :+:    :+:   */
+/*   ft_lstdel.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: edhommee <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/11/07 09:33:30 by edhommee          #+#    #+#             */
-/*   Updated: 2016/11/21 12:56:12 by edhommee         ###   ########.fr       */
+/*   Created: 2016/11/21 11:21:59 by edhommee          #+#    #+#             */
+/*   Updated: 2016/11/21 11:22:40 by edhommee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strdup(const char *src)
+void	ft_lstdel(t_list **alst, void (*del)(void *, size_t))
 {
-	char	*s2;
-	int		i;
-
-	i = 0;
-	while (src[i] != '\0')
-		i++;
-	s2 = (char*)malloc(sizeof(char) * (i + 1));
-	i = 0;
-	if (!s2)
-		return (NULL);
-	while (src[i] != '\0')
+	while (*alst != NULL)
 	{
-		s2[i] = src[i];
-		i++;
+		del((*alst)->content, (*alst)->content_size);
+		free(*alst);
+		*alst = (*alst)->next;
 	}
-	s2[i] = '\0';
-	return (s2);
 }

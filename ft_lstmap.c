@@ -1,34 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strdup.c                                        :+:      :+:    :+:   */
+/*   ft_lstmap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: edhommee <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/11/07 09:33:30 by edhommee          #+#    #+#             */
-/*   Updated: 2016/11/21 12:56:12 by edhommee         ###   ########.fr       */
+/*   Created: 2016/11/21 11:24:40 by edhommee          #+#    #+#             */
+/*   Updated: 2016/11/21 11:25:10 by edhommee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strdup(const char *src)
+t_list	*ft_lstmap(t_list *lst, t_list *(f)(t_list *elem))
 {
-	char	*s2;
-	int		i;
+	t_list	*new;
 
-	i = 0;
-	while (src[i] != '\0')
-		i++;
-	s2 = (char*)malloc(sizeof(char) * (i + 1));
-	i = 0;
-	if (!s2)
+	if (lst == NULL)
 		return (NULL);
-	while (src[i] != '\0')
-	{
-		s2[i] = src[i];
-		i++;
-	}
-	s2[i] = '\0';
-	return (s2);
+	new = f(lst);
+	new->next = ft_lstmap(lst->next, f);
+	return (new);
 }

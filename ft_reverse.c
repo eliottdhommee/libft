@@ -1,34 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strdup.c                                        :+:      :+:    :+:   */
+/*   ft_reverse.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: edhommee <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/11/07 09:33:30 by edhommee          #+#    #+#             */
-/*   Updated: 2016/11/21 12:56:12 by edhommee         ###   ########.fr       */
+/*   Created: 2016/11/21 11:25:39 by edhommee          #+#    #+#             */
+/*   Updated: 2016/11/21 11:25:59 by edhommee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
-
-char	*ft_strdup(const char *src)
+char	*ft_reverse(char *str, int size)
 {
-	char	*s2;
 	int		i;
+	int		j;
+	char	tmp;
 
 	i = 0;
-	while (src[i] != '\0')
-		i++;
-	s2 = (char*)malloc(sizeof(char) * (i + 1));
-	i = 0;
-	if (!s2)
-		return (NULL);
-	while (src[i] != '\0')
+	j = size - 1;
+	while (i < j)
 	{
-		s2[i] = src[i];
+		tmp = str[i];
+		str[i] = str[j];
+		str[j] = tmp;
 		i++;
+		j--;
 	}
-	s2[i] = '\0';
-	return (s2);
+	return (str);
 }

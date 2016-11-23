@@ -6,7 +6,7 @@
 /*   By: edhommee <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/07 17:06:52 by edhommee          #+#    #+#             */
-/*   Updated: 2016/11/07 17:09:06 by edhommee         ###   ########.fr       */
+/*   Updated: 2016/11/07 17:25:36 by edhommee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,14 +53,14 @@ static char			**ft_sup(char **sup, int size)
 
 char				**ft_strsplit(char const *s, char c)
 {
-	char		**exit;
+	char		**name;
 	int			i;
 	const char	*next;
 
 	if (s == NULL)
 		return (NULL);
-	exit = (char**)malloc(sizeof(char*) * (ft_leng(s, c) + 1));
-	if (exit == NULL)
+	name = (char**)malloc(sizeof(char*) * (ft_leng(s, c) + 1));
+	if (name == NULL)
 		return (NULL);
 	i = 0;
 	while (*s != '\0')
@@ -69,13 +69,13 @@ char				**ft_strsplit(char const *s, char c)
 		if (*s != '\0')
 		{
 			next = ft_next(s, c, 0);
-			exit[i] = ft_strsub(s, 0, next - s);
-			if (exit[i] == NULL)
-				return (ft_sup(exit, i));
+			name[i] = ft_strsub(s, 0, next - s);
+			if (name[i] == NULL)
+				return (ft_sup(name, i));
 			i++;
 			s = next;
 		}
 	}
-	exit[i] = NULL;
-	return (exit);
+	name[i] = NULL;
+	return (name);
 }
