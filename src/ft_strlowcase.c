@@ -1,22 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.c                                        :+:      :+:    :+:   */
+/*   ft_strlowcase.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: edhommee <eliottdhommee@gmail.com>         +#+  +:+       +#+        */
+/*   By: mgalliou <mgalliou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/05/20 22:49:09 by edhommee          #+#    #+#             */
-/*   Updated: 2017/05/21 02:47:18 by edhommee         ###   ########.fr       */
+/*   Created: 2016/11/14 13:27:54 by mgalliou          #+#    #+#             */
+/*   Updated: 2017/05/31 12:13:37 by mgalliou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <ft_printf.h>
+#include "libft.h"
 
-int		print(char *str)
+char		*ft_strlowcase(char *s)
 {
-	int	i;
+	char	*tmp;
 
-	i = ft_strlen(str);
-	write(1, str, i);
-	return(ia);
+	tmp = s;
+	while (*tmp)
+	{
+		*tmp = ft_tolower((int)*tmp);
+		tmp++;
+	}
+	return (s);
 }

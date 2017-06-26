@@ -10,7 +10,7 @@
 #                                                                              #
 # **************************************************************************** #
 
-NAME		= libft.a
+NAME		= libftprintf.a
 
 CC			= gcc
 CFLAGS		= -Wall -Wextra -Werror
@@ -28,7 +28,11 @@ SRC_NAME	= ft_putchar.c ft_putstr.c ft_strlen.c ft_strcmp.c ft_atoi.c\
 		ft_strmap.c ft_striteri.c ft_strequ.c ft_strnequ.c ft_strjoin.c\
 		ft_strmapi.c ft_strsplit.c ft_strtrim.c ft_lstnew.c ft_lstdelone.c\
 		ft_lstadd.c ft_lstdel.c ft_lstiter.c ft_lstmap.c ft_reverse.c\
-		ft_memcpy_rev.c get_next_line.c ft_printf/ft_printf.c
+		ft_memcpy_rev.c get_next_line.c ft_printf.c pf_buffering.c\
+		pf_charstostr.c pf_convgetters.c pf_convtobuffer.c pf_init.c\
+		pf_nbrtostr.c pf_normaltobuffer.c pf_putconvtobuffer.c pf_setapos.c\
+		pf_setprecision.c pf_toolkit.c ft_wchartoa.c ft_itoa_base.c\
+		ft_strlowcase.c ft_strndup.c
 
 SRC			= $(addprefix $(SRC_DIR),$(SRC_NAME))
 

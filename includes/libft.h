@@ -16,6 +16,7 @@
 # include <string.h>
 # include <unistd.h>
 # include <stdlib.h>
+# include <wchar.h>
 
 void				ft_putchar(char c);
 void				ft_putstr(const char *s);
@@ -72,6 +73,10 @@ char				*ft_strjoin(char const *s1, char const *s2);
 char				*ft_strmapi(char const *s, char (*f)(unsigned int, char));
 char				**ft_strsplit(char const *s, char c);
 char				*ft_strtrim(char const *s);
+char				*ft_wchartoa(wint_t wint);
+char				*ft_itoa_base(uintmax_t n, int base);
+char				*ft_strlowcase(char *s);
+char				*ft_strndup(const char *s1, size_t n);
 
 typedef	struct		s_list
 {

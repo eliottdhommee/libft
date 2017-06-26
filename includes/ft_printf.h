@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: edhommee <eliottdhommee@gmail.com>         +#+  +:+       +#+        */
+/*   By: mgalliou <mgalliou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/05/20 22:51:14 by edhommee          #+#    #+#             */
-/*   Updated: 2017/05/21 17:05:48 by edhommee         ###   ########.fr       */
+/*   Created: 2017/03/23 14:38:10 by mgalliou          #+#    #+#             */
+/*   Updated: 2017/06/16 17:20:47 by mgalliou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,13 @@
 # include <unistd.h>
 # include <stdlib.h>
 # include <stdarg.h>
-# include <wchar.h>
+
+# define BUFF_SIZE 1024
+
+typedef enum	e_lenght
+{
+	hh, h, l, ll, j, t, z, q, L, NONE
+}				t_lenght;
 
 typedef struct	s_flags
 {
@@ -29,45 +35,92 @@ typedef struct	s_flags
 	int			apos;
 }				t_flags;
 
-enum lenght
-{
-	hh, h, l, ll, j, t, z, q, L
-};
-
-
 typedef struct	s_conv
 {
-	t_flags		flags;
+	t_flags		*flags;
 	int			width;
 	int			preci;
-	lenght		len;
+	t_lenght	len;
 	char		type;
 	int			id;
+	void		*ptr;
 }				t_conv;
 
 typedef struct	s_env
 {
-	char		*form;
-	char		*str;
-	int			numbered;
+	const char	*form;
 	int			i;
-	t_conv		conv;
+	char		buf[BUFF_SIZE];
+	int			j;
+	int			nbarg;
+	int			numbered;
+	t_conv		*conv;
+	int			ret;
+	int			fd;
 }				t_env;
 
-int				ft_printf(const char *format, ...);
+/*
+** MAIN
+*/
 
-int				isconv(char c);
-int				istype(char c);
-int				isflag(char c);
+int				ft_printf(const char *format, ...);
+t_env			*conv_to_buffer(t_env *env);
+t_env			*normal_to_buffer(t_env *env);
+
+/*
+** TO STR
+*/
+
+char			*nbr_to_str(t_env *env);
+char			*float_to_str(t_env *env);
+char			*chars_to_str(t_env *env);
+
+/*
+** INIT
+*/
 
 t_flags			*flagsnew(t_flags *flags);
 t_conv			*convnew(t_conv *conv);
-t_env			*envnew(t_env *env, char *format);
+t_env			*envnew(t_env *env, const char *format);
+void			convdel(t_conv **conv);
+void			envdel(t_env **env);
+
+/*
+** CONV GETTERS
+*/
 
 int				get_id(t_env *env);
+void			*get_arg(int id, va_list *ap);
 t_flags			*get_flags(t_env *env);
-int				get_width(t_env *env);
-int				get_preci(t_env *env);
-enum lenght		get_len(t_env *env);
+int				get_width(va_list *ap, t_env *env);
+int				get_preci(va_list *ap, t_env *env);
+t_lenght		get_len(t_env *env);
+
+/*
+** FORMATING
+*/
+
+t_env			*putconv_to_buffer(char *str, t_env *env);
+char			*setprecision(char *str, t_env *env);
+char			*setapostrophe(char *str, t_env *env);
+
+/*
+** BUFFERING
+*/
+
+int				print_buffer(int size, t_env *env);
+t_env			*putchar_to_buffer(char c, t_env *env);
+t_env			*putstr_to_buffer(char *str, t_env *env);
+
+/*
+**	TOOLKIT
+*/
+
+int				isconv(char c);
+int				istype(int c);
+int				isflag(char c);
+int				islenght(char c);
+int				ismidwchar(unsigned int c);
+int				isbegwchar(unsigned int c);
 
 #endif

@@ -3,78 +3,107 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: edhommee <eliottdhommee@gmail.com>         +#+  +:+       +#+        */
+/*   By: mgalliou <mgalliou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/05/20 22:49:09 by edhommee          #+#    #+#             */
-/*   Updated: 2017/05/21 03:07:12 by edhommee         ###   ########.fr       */
+/*   Created: 2017/03/23 14:36:02 by mgalliou          #+#    #+#             */
+/*   Updated: 2017/06/16 17:12:06 by mgalliou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <ft_printf.h>
+#include "ft_printf.h"
 
-int		print(char *str)
+static t_conv	*simplify_conv(t_conv *conv)
 {
-	int	i;
-
-	i = ft_strlen(str);
-	write(1, str, i);
-	return(i);
+	if (conv->type == 'i')
+		conv->type = 'd';
+	if (ft_strchr("DOUCSp", conv->type))
+	{
+		conv->type = ft_tolower(conv->type);
+		conv->len = l;
+	}
+	if (conv->width < 0)
+	{
+		conv->flags->min = 1;
+		conv->width *= -1;
+	}
+	if (conv->type == 'p')
+		conv->flags->hash = 1;
+	if (conv->flags->min || (ft_strchr("douxX", conv->type) && conv->preci > 0))
+		conv->flags->zero = 0;
+	if (conv->type != 'd')
+	{
+		conv->flags->plus = 0;
+		conv->flags->space = 0;
+	}
+	if (conv->flags->plus)
+		conv->flags->space = 0;
+	return (conv);
 }
 
-t_env	*get_conv(t_env *env)
+static t_env	*get_conv(va_list *ap, t_env *env)
 {
-	t_conv	*new;
-	int		start;
-	int		i;
-
-	i = env->i;
-	start = i;
-	while (env->form[i] && !istype(env->form[i]))
-		i++;
-	if (!env->form[i])
-		return(NULL);
-	new = flagnew(new);
-	new->type = env->form[i];
-	new->id = get_id(env);
-	new->flags = get_flags(env);
-	new->width = get_width(env);
-	new->preci = get_preci(env);
-	new->len = get_len(&env);
-	env->conv = new;
+	env->i++;
+	env->conv = convnew(env->conv);
+	env->conv->id = get_id(env);
+	env->conv->flags = get_flags(env);
+	env->conv->width = get_width(ap, env);
+	if (env->form[env->i] == '.')
+		env->conv->preci = get_preci(ap, env);
+	if (islenght(env->form[env->i]))
+		env->conv->len = get_len(env);
+	env->conv->type = env->form[env->i];
+	if (istype(env->conv->type) && env->conv->type != '%')
+		env->conv->ptr = get_arg(env->conv->id, ap);
+	else
+		env->nbarg--;
+	env->conv = simplify_conv(env->conv);
 	return (env);
 }
 
-t_env	*get_string(t_env *env, va_list ap)
+static t_env	*print(va_list *ap, t_env *env)
 {
 	while (env->form[env->i])
 	{
-		if (isconv(env->form[env->i]))
+		if (env->form[env->i] == '%')
 		{
-			env = get_conv(env);
-			env = add_conv_to_str(env, ap);
+			env = get_conv(ap, env);
+			if (env->conv->type)
+			{
+				if (!(env = conv_to_buffer(env)))
+					return (NULL);
+				env->i++;
+			}
+			convdel(&env->conv);
 		}
 		else
-			env = add_chars_to_str(env);
+			env = normal_to_buffer(env);
 	}
+	if (env && env->j)
+		env->ret += print_buffer(env->j, env);
 	return (env);
 }
 
-int		ft_printf(const char *format, ...)
+int				ft_printf(const char *format, ...)
 {
-	t_env	*env;
-	va_list	ap;
-	int		res;
+	t_env		*env;
+	va_list		ap;
+	int			ret;
+
+	env = NULL;
+	env = envnew(env, format);
 	if (!format)
 		return (-1);
-	else if (!ft_strchr(env->form, '%'))
-		res = print(format);
 	else
 	{
-		va_start(ap, env->form);
-		env = init_env(env, format);
-		env = get_string(env, ap);
-		res = print(env->str);
+		va_start(ap, format);
+		if (!(env = print(&ap, env)))
+			ret = -1;
 		va_end(ap);
 	}
-	return (res);
+	if (env)
+	{
+		ret = env->ret;
+		envdel(&env);
+	}
+	return (ret);
 }
