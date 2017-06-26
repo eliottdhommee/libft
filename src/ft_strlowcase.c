@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strlowcase.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mgalliou <mgalliou@student.42.fr>          +#+  +:+       +#+        */
+/*   By: edhommee <eliottdhommee@gmail.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/11/14 13:27:54 by mgalliou          #+#    #+#             */
-/*   Updated: 2017/05/31 12:13:37 by mgalliou         ###   ########.fr       */
+/*   Created: 2017/06/26 12:25:21 by edhommee          #+#    #+#             */
+/*   Updated: 2017/06/26 12:25:23 by edhommee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
