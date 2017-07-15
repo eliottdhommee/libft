@@ -6,7 +6,7 @@
 /*   By: edhommee <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/07 09:40:27 by edhommee          #+#    #+#             */
-/*   Updated: 2017/07/15 11:50:42 by edhommee         ###   ########.fr       */
+/*   Updated: 2017/07/15 13:29:34 by edhommee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -113,5 +113,6 @@ void				*btree_search_item(t_btree *root,
 int					btree_level_count(t_btree *root);
 void				btree_apply_by_level(t_btree *root, void (*applyf)
 							(void *item, int current_level, int is_first_elem));
+void				btree_delete_btree(t_btree *root);
 
 #endif
