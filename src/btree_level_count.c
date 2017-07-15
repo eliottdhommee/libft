@@ -1,23 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   btree_apply_prefix.c                               :+:      :+:    :+:   */
+/*   btree_level_count.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: edhommee <eliottdhommee@gmail.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/07/13 11:11:11 by edhommee          #+#    #+#             */
-/*   Updated: 2017/07/13 11:27:07 by edhommee         ###   ########.fr       */
+/*   Created: 2017/07/15 11:40:02 by edhommee          #+#    #+#             */
+/*   Updated: 2017/07/15 11:48:05 by edhommee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <libft.h>
 
-void		btree_apply_prefix(t_btree *root, void(*applyf)(void*))
+static int	ft_max(int a, int b)
 {
-	if (root)
-	{
-		applyf(root->item);
-		btree_apply_prefix(root->left, applyf);
-		btree_apply_prefix(root->right, applyf);
-	}
+	if (a > b)
+		return (a);
+	else
+		return (b);
+}
+
+int			btree_level_count(t_btree *root)
+{
+	if (!root)
+		return (0);
+	return(ft_max(btree_level_count(root->left),
+			btree_level_count(root->right)) + 1);
 }
