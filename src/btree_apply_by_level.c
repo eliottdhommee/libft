@@ -1,29 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_btree_create_node.c                             :+:      :+:    :+:   */
+/*   btree_apply_by_level.c                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: edhommee <eliottdhommee@gmail.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/07/11 16:03:00 by edhommee          #+#    #+#             */
-/*   Updated: 2017/07/15 13:28:37 by edhommee         ###   ########.fr       */
+/*   Created: 2017/07/15 13:14:46 by edhommee          #+#    #+#             */
+/*   Updated: 2017/07/15 13:24:56 by edhommee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <libft.h>
 
-t_btree		*btree_create_node(void *item)
+void		btree_apply_by_level(t_btree *root, void (*applyf)
+					(void *item, int current_level, int is_first_elem))
 {
-	t_btree		*new_node;
-
-	new_node = (t_btree*)malloc(sizeof(t_btree));
-	if (!new_node)
-		return (NULL);
-	else
-	{
-		new_node->item = item;
-		new_node->left = NULL;
-		new_node->right = NULL;
-	}
-	return(new_node);
+	
 }

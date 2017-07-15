@@ -1,29 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_btree_create_node.c                             :+:      :+:    :+:   */
+/*   btree_delete_btree.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: edhommee <eliottdhommee@gmail.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/07/11 16:03:00 by edhommee          #+#    #+#             */
-/*   Updated: 2017/07/15 13:28:37 by edhommee         ###   ########.fr       */
+/*   Created: 2017/07/15 13:25:11 by edhommee          #+#    #+#             */
+/*   Updated: 2017/07/15 13:28:03 by edhommee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <libft.h>
 
-t_btree		*btree_create_node(void *item)
+void		btree_delete_btree(t_btree *root)
 {
-	t_btree		*new_node;
-
-	new_node = (t_btree*)malloc(sizeof(t_btree));
-	if (!new_node)
-		return (NULL);
-	else
+	if (root)
 	{
-		new_node->item = item;
-		new_node->left = NULL;
-		new_node->right = NULL;
+		btree_delete_btree(root->left);
+		free(root);
+		btree_delete_btree(root->right);
 	}
-	return(new_node);
 }
