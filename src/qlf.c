@@ -1,25 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   btree_insert_data.c                                :+:      :+:    :+:   */
+/*   qlf.c                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: edhommee <eliottdhommee@gmail.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/07/13 11:42:33 by edhommee          #+#    #+#             */
-/*   Updated: 2017/07/19 15:17:50 by edhommee         ###   ########.fr       */
+/*   Created: 2017/07/19 15:58:22 by edhommee          #+#    #+#             */
+/*   Updated: 2017/07/19 16:45:29 by edhommee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <libft.h>
 
-void	btree_insert_data(t_btree **root, void *item, int (*cmpf)(void*, void*))
+t_btree		*papy(t_btree *node)
 {
-	if (!*root)
-		*root = btree_create_node(item);
-	if ((*cmpf)(item, (*root)->item) > 0)
-		btree_insert_data(&(*root)->left, item, (*cmpf));
-	else if ((*cmpf)(item, (*root)->item) <= 0)
-		btree_insert_data(&(*root)->right, item, (*cmpf));
+	if (node != NULL && node->parent != NULL)
+		return (node->parent->parent);
 	else
-		return;
+		return (NULL);
+}
+
+t_btree		*tonton(t_btree *node)
+{
+	t_btree *grandparent;
+
+	grandparent = papy(node);
+	if (!grandparent)
+		return (NULL);
+	if (node->parent == grandparent->left)
+		return (grandparent->right);
+	else
+		return (grandparent->left);
 }
