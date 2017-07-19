@@ -6,7 +6,7 @@
 #    By: edhommee <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/11/07 09:49:17 by edhommee          #+#    #+#              #
-#*   Updated: 2017/05/21 00:03:06 by edhommee         ###   ########.fr       *#
+#*   Updated: 2017/07/19 12:10:11 by edhommee         ###   ########.fr       *#
 #                                                                              #
 # **************************************************************************** #
 
@@ -32,7 +32,10 @@ SRC_NAME	= ft_putchar.c ft_putstr.c ft_strlen.c ft_strcmp.c ft_atoi.c\
 		pf_charstostr.c pf_convgetters.c pf_convtobuffer.c pf_init.c\
 		pf_nbrtostr.c pf_normaltobuffer.c pf_putconvtobuffer.c pf_setapos.c\
 		pf_setprecision.c pf_toolkit.c ft_wchartoa.c ft_itoa_base.c\
-		ft_strlowcase.c ft_strndup.c
+		ft_strlowcase.c ft_strndup.c btree_apply_by_level.c \
+		btree_apply_infix.c btree_apply_prefix.c btree_apply_suffix.c\
+		btree_create_node.c btree_insert_data.c btree_level_count.c\
+		btree_print.c btree_search_item.c rb_rotate.c
 
 SRC			= $(addprefix $(SRC_DIR),$(SRC_NAME))
 
