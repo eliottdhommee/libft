@@ -6,11 +6,11 @@
 #    By: edhommee <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/11/07 09:49:17 by edhommee          #+#    #+#              #
-#*   Updated: 2017/07/20 10:57:50 by edhommee         ###   ########.fr       *#
+#*   Updated: 2017/07/20 12:03:45 by edhommee         ###   ########.fr       *#
 #                                                                              #
 # **************************************************************************** #
 
-NAME		= libftprintf.a
+NAME		= libft.a
 
 CC			= gcc
 CFLAGS		= -Wall -Wextra -Werror
