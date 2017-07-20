@@ -6,7 +6,7 @@
 /*   By: edhommee <eliottdhommee@gmail.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/07/19 15:12:45 by edhommee          #+#    #+#             */
-/*   Updated: 2017/07/19 16:45:27 by edhommee         ###   ########.fr       */
+/*   Updated: 2017/07/20 11:34:35 by edhommee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,9 +20,19 @@ void		rb_insert(t_btree **root, void *item, int (*cmpf)(void *, void *))
 		(*root)->color = RB_RED;
 	}
 	if ((*cmpf)(item, (*root)->item) > 0)
+	{
 		rb_insert(&(*root)->left, item, (*cmpf));
+		if ((*root)->left && !(*root)->left->parent)
+			(*root)->left->parent = (*root);
+		if ((*root)->left->color == RB_RED && (*root)->color == RB_RED)
+			check_and_rotate(&(*root)->left);
+	}
 	else if ((*cmpf)(item, (*root)->item) <= 0)
+	{
 		rb_insert(&(*root)->right, item, (*cmpf));
-	if ((*root)->parent->color == RB_RED && (*root)->color == RB_RED)
-		check_and_rotate(&(*root));
+		if ((*root)->right && !(*root)->right->parent)
+			(*root)->right->parent = (*root);
+		if ((*root)->right->color == RB_RED && (*root)->color == RB_RED)
+			check_and_rotate(&(*root)->right);
+	}
 }
