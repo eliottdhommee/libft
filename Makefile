@@ -6,7 +6,7 @@
 #    By: edhommee <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/11/07 09:49:17 by edhommee          #+#    #+#              #
-#*   Updated: 2017/07/19 15:36:26 by edhommee         ###   ########.fr       *#
+#*   Updated: 2017/07/20 10:57:50 by edhommee         ###   ########.fr       *#
 #                                                                              #
 # **************************************************************************** #
 
@@ -36,6 +36,7 @@ SRC_NAME	= ft_putchar.c ft_putstr.c ft_strlen.c ft_strcmp.c ft_atoi.c\
 		btree_apply_infix.c btree_apply_prefix.c btree_apply_suffix.c\
 		btree_create_node.c btree_insert_data.c btree_level_count.c\
 		btree_print.c btree_search_item.c rb_rotate.c rb_insert.c\
+		rb_qlf.c
 
 SRC			= $(addprefix $(SRC_DIR),$(SRC_NAME))
 
