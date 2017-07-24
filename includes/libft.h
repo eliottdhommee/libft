@@ -6,7 +6,7 @@
 /*   By: edhommee <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/07 09:40:27 by edhommee          #+#    #+#             */
-/*   Updated: 2017/07/19 16:04:06 by edhommee         ###   ########.fr       */
+/*   Updated: 2017/07/24 10:59:37 by edhommee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -95,22 +95,14 @@ t_list				*ft_lstmap(t_list *lst, t_list *(f)(t_list *elem));
 int					get_next_line(const int fd, char **line);
 int					ft_printf(const char *format, ...);
 
-enum				e_rb_color
-{
-	RB_BLACK,
-	RB_RED
-};
-
 typedef	struct		s_btree
 {
-	struct s_btree	*parent;
 	struct s_btree	*left;
 	struct s_btree	*right;
 	void			*item;
-	enum e_rb_color	color;
 }					t_btree;
 
-void				btree_print(t_btree *root, char *type, int level);
+void				btree_print(t_btree **root, char *type, int level);
 t_btree				*btree_create_node(void *item);
 void				btree_apply_prefix(t_btree *root, void(*applyf)(void*));
 void				btree_apply_infix(t_btree *root, void(*applyf)(void*));
@@ -122,12 +114,5 @@ void				*btree_search_item(t_btree *root,
 int					btree_level_count(t_btree *root);
 void				btree_apply_by_level(t_btree *root, void (*applyf)
 							(void *item, int current_level, int is_first_elem));
-void				rb_left_rotate(t_btree **node);
-void				rb_right_rotate(t_btree **node);
-void				rb_insert(t_btree **root, void *item,
-							 int (*cmpf)(void *, void *));
-t_btree				*papy(t_btree *node);
-t_btree				*tonton(t_btree *node);
-void				check_and_rotate(t_btree **root);
 
 #endif
