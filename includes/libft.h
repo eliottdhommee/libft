@@ -6,7 +6,7 @@
 /*   By: edhommee <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/07 09:40:27 by edhommee          #+#    #+#             */
-/*   Updated: 2017/07/27 15:15:33 by edhommee         ###   ########.fr       */
+/*   Updated: 2017/08/14 15:15:10 by edhommee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,6 +77,7 @@ char				*ft_wchartoa(wint_t wint);
 char				*ft_itoa_base(uintmax_t n, int base);
 char				*ft_strlowcase(char *s);
 char				*ft_strndup(const char *s1, size_t n);
+int					ft_nbrlen(int nbr);
 
 typedef	struct		s_list
 {
