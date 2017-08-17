@@ -6,7 +6,7 @@
 /*   By: edhommee <eliottdhommee@gmail.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/07/15 13:14:46 by edhommee          #+#    #+#             */
-/*   Updated: 2017/07/19 15:12:01 by edhommee         ###   ########.fr       */
+/*   Updated: 2017/08/17 17:49:57 by edhommee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ static void		btree_apply_one_level(t_btree *root, int current_level,
 	if (current_level == wanted_level)
 	{
 		applyf(root->item, current_level, is_first_elem);
-		return;
+		return ;
 	}
 	if (root->left)
 		btree_apply_one_level(root->left, current_level + 1, wanted_level,

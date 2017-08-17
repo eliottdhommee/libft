@@ -6,13 +6,13 @@
 /*   By: edhommee <eliottdhommee@gmail.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/07/13 11:11:11 by edhommee          #+#    #+#             */
-/*   Updated: 2017/07/13 11:27:07 by edhommee         ###   ########.fr       */
+/*   Updated: 2017/08/17 17:56:15 by edhommee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <libft.h>
 
-void		btree_apply_prefix(t_btree *root, void(*applyf)(void*))
+void		btree_apply_prefix(t_btree *root, void (*applyf)(void*))
 {
 	if (root)
 	{

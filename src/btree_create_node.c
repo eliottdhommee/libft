@@ -6,7 +6,7 @@
 /*   By: edhommee <eliottdhommee@gmail.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/07/11 16:03:00 by edhommee          #+#    #+#             */
-/*   Updated: 2017/07/24 11:38:30 by edhommee         ###   ########.fr       */
+/*   Updated: 2017/08/17 17:56:43 by edhommee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,5 +25,5 @@ t_btree		*btree_create_node(void *item)
 		new_node->left = NULL;
 		new_node->right = NULL;
 	}
-	return(new_node);
+	return (new_node);
 }

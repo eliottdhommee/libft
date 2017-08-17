@@ -6,13 +6,13 @@
 /*   By: edhommee <eliottdhommee@gmail.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/07/13 11:37:15 by edhommee          #+#    #+#             */
-/*   Updated: 2017/07/13 11:39:37 by edhommee         ###   ########.fr       */
+/*   Updated: 2017/08/17 17:55:17 by edhommee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <libft.h>
 
-void		btree_apply_suffix(t_btree *root, void(*applyf)(void*))
+void		btree_apply_suffix(t_btree *root, void (*applyf)(void*))
 {
 	if (root)
 	{

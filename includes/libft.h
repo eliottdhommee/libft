@@ -6,7 +6,7 @@
 /*   By: edhommee <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/07 09:40:27 by edhommee          #+#    #+#             */
-/*   Updated: 2017/08/14 15:15:10 by edhommee         ###   ########.fr       */
+/*   Updated: 2017/08/17 18:04:36 by edhommee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -107,13 +107,13 @@ t_btree				*btree_create_node(void *item);
 void				btree_apply_prefix(t_btree *root, void(*applyf)(void*));
 void				btree_apply_infix(t_btree *root, void(*applyf)(void*));
 void				btree_apply_suffix(t_btree *root, void(*applyf)(void*));
-void				btree_insert_data(t_btree **root, 
+void				btree_insert_data(t_btree **root,
 							void *item, int (*cmpf)(void*, void*));
-void				*btree_search_item(t_btree *root, 
+void				*btree_search_item(t_btree *root,
 							void *data_ref, int (*cmpf)(void*, void*));
 int					btree_level_count(t_btree *root);
 void				btree_apply_by_level(t_btree *root, void (*applyf)
 							(void *item, int current_level, int is_first_elem));
-void				btree_delete(t_btree *root);
+void				btree_delete(t_btree *root, void (*del_item)(void*));
 
 #endif

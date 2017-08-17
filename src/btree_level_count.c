@@ -6,7 +6,7 @@
 /*   By: edhommee <eliottdhommee@gmail.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/07/15 11:40:02 by edhommee          #+#    #+#             */
-/*   Updated: 2017/07/15 13:24:08 by edhommee         ###   ########.fr       */
+/*   Updated: 2017/08/17 17:57:06 by edhommee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,6 @@ int			btree_level_count(t_btree *root)
 {
 	if (!root)
 		return (0);
-	return(ft_max(btree_level_count(root->left),
+	return (ft_max(btree_level_count(root->left),
 			btree_level_count(root->right)) + 1);
 }
