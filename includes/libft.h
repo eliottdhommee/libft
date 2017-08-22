@@ -6,7 +6,7 @@
 /*   By: edhommee <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/07 09:40:27 by edhommee          #+#    #+#             */
-/*   Updated: 2017/08/21 19:04:41 by edhommee         ###   ########.fr       */
+/*   Updated: 2017/08/22 15:10:18 by edhommee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,6 +80,8 @@ char				*ft_strndup(const char *s1, size_t n);
 int					ft_nbrlen(int nbr);
 char				**ft_tabdup(char **tab);
 char				*ft_strcjoin(char const *s1, const char *s2, char c);
+void				ft_tabdel(char ***tab);
+void				ft_puttab(char **tab);
 
 typedef	struct		s_list
 {

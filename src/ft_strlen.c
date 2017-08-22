@@ -6,7 +6,7 @@
 /*   By: edhommee <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/07 09:35:12 by edhommee          #+#    #+#             */
-/*   Updated: 2017/05/20 17:26:53 by edhommee         ###   ########.fr       */
+/*   Updated: 2017/08/22 12:50:57 by edhommee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ size_t	ft_strlen(const char *str)
 	int		i;
 
 	i = 0;
-	while (str[i] != '\0')
+	while (str[i])
 	{
 		i++;
 	}

@@ -1,30 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strcjoin.c                                      :+:      :+:    :+:   */
+/*   ft_tabdel.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: edhommee <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/08/21 17:36:29 by edhommee          #+#    #+#             */
-/*   Updated: 2017/08/22 13:42:38 by edhommee         ###   ########.fr       */
+/*   Created: 2017/08/22 09:59:01 by edhommee          #+#    #+#             */
+/*   Updated: 2017/08/22 14:10:41 by edhommee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <libft.h>
 
-char	*ft_strcjoin(char const *s1, char const *s2, char c)
+void		ft_tabdel(char ***tab)
 {
-	char	*res;
-	int		size;
+	int		i;
+	char	**tmp;
 
-	if (!(s1 && s2))
-		return (NULL);
-	size = ft_strlen(s1) + ft_strlen(s2) + 1;
-	if (!(res = (char*)malloc((size + 1) * sizeof(char))))
-		return (NULL);
-	res = ft_strcpy(res, (char*)s1);
-	res[ft_strlen(s1)] = c;
-	res[ft_strlen(s1) + 1] = '\0';
-	res = ft_strcat(res, s2);
-	return (res);
+	tmp = *tab;
+	i = 0;
+	if (tmp)
+	{
+		while (tmp[i])
+			ft_strdel(&tmp[i++]);
+		ft_memdel((void *)tab);
+	}
 }
