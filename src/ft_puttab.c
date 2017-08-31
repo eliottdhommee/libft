@@ -6,7 +6,7 @@
 /*   By: edhommee <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/22 15:08:16 by edhommee          #+#    #+#             */
-/*   Updated: 2017/08/22 15:09:54 by edhommee         ###   ########.fr       */
+/*   Updated: 2017/08/31 14:01:53 by edhommee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@ void		ft_puttab(char **tab)
 	while (tab[i])
 	{
 		ft_putstr(tab[i]);
+		ft_putchar('\n');
 		i++;
 	}
 }
