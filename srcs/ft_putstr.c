@@ -6,7 +6,7 @@
 /*   By: edhommee <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/07 09:27:15 by edhommee          #+#    #+#             */
-/*   Updated: 2017/09/07 18:28:25 by edhommee         ###   ########.fr       */
+/*   Updated: 2017/09/07 19:59:50 by edhommee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,5 +14,5 @@
 
 void	ft_putstr(const char *s)
 {
-	write(1, s, ft_strlen(s));
+	ft_putstr_fd(s, 1);
 }

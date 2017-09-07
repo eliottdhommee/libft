@@ -1,29 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strndup.c                                       :+:      :+:    :+:   */
+/*   ft_strdup.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: edhommee <eliottdhommee@gmail.com>         +#+  +:+       +#+        */
+/*   By: edhommee <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/06/26 12:25:36 by edhommee          #+#    #+#             */
-/*   Updated: 2017/06/26 12:25:37 by edhommee         ###   ########.fr       */
+/*   Created: 2016/11/07 09:33:30 by edhommee          #+#    #+#             */
+/*   Updated: 2017/09/07 19:45:02 by edhommee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include <libft.h>
 
-char		*ft_strndup(const char *s1, size_t n)
+char	*ft_strdup(const char *src)
 {
-	char	*dst;
-	char	*tmp;
+	char		*new;
 
-	if (!(dst = (char*)ft_memalloc(sizeof(char) * n + 1)))
+	if (!(new = malloc(sizeof(char) * (ft_strlen(src) + 1))))
 		return (NULL);
-	tmp = dst;
-	while (*s1 && n-- > 0)
-	{
-		*tmp++ = *s1++;
-	}
-	*tmp = '\0';
-	return (dst);
+	return (ft_strcpy(new, src));
 }

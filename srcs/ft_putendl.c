@@ -1,26 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_puttab.c                                        :+:      :+:    :+:   */
+/*   ft_putendl.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: edhommee <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/08/22 15:08:16 by edhommee          #+#    #+#             */
-/*   Updated: 2017/08/31 14:01:53 by edhommee         ###   ########.fr       */
+/*   Created: 2016/11/07 09:23:31 by edhommee          #+#    #+#             */
+/*   Updated: 2017/09/07 20:01:29 by edhommee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <libft.h>
 
-void		ft_puttab(char **tab)
+void	ft_putendl(const char *s)
 {
-	int		i;
-
-	i = 0;
-	while (tab[i])
-	{
-		ft_putstr(tab[i]);
-		ft_putchar('\n');
-		i++;
-	}
+	ft_putstr(s);
+	ft_putchar('\n');
 }

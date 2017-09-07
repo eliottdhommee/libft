@@ -6,7 +6,7 @@
 #    By: edhommee <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/11/07 09:49:17 by edhommee          #+#    #+#              #
-#*   Updated: 2017/09/07 18:53:54 by edhommee         ###   ########.fr       *#
+#*   Updated: 2017/09/07 19:54:29 by edhommee         ###   ########.fr       *#
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,7 +15,7 @@ NAME		= libft.a
 CC			= gcc
 CFLAGS		= -Wall -Wextra -Werror
 
-SRC_DIR		= ./src/
+SRC_DIR		= ./srcs/
 
 BTREE_DIR	= btree/
 BTREE_SRC	= btree_apply_infix.c btree_apply_prefix.c btree_apply_suffix.c\

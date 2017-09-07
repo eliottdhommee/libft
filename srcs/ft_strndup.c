@@ -1,34 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strdup.c                                        :+:      :+:    :+:   */
+/*   ft_strndup.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: edhommee <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: edhommee <eliottdhommee@gmail.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/11/07 09:33:30 by edhommee          #+#    #+#             */
-/*   Updated: 2017/05/20 17:25:51 by edhommee         ###   ########.fr       */
+/*   Created: 2017/06/26 12:25:36 by edhommee          #+#    #+#             */
+/*   Updated: 2017/09/07 19:33:27 by edhommee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <libft.h>
+#include "libft.h"
 
-char	*ft_strdup(const char *src)
+char		*ft_strndup(const char *s1, size_t n)
 {
-	char	*s2;
-	int		i;
+	char	*dst;
+	char	*tmp;
 
-	i = 0;
-	while (src[i] != '\0')
-		i++;
-	s2 = (char*)malloc(sizeof(char) * (i + 1));
-	i = 0;
-	if (!s2)
+	if (!(dst = ft_strnew(n)))
 		return (NULL);
-	while (src[i] != '\0')
-	{
-		s2[i] = src[i];
-		i++;
-	}
-	s2[i] = '\0';
-	return (s2);
+	tmp = dst;
+	while (*s1 && n-- > 0)
+		*tmp++ = *s1++;
+	*tmp = '\0';
+	return (dst);
 }
