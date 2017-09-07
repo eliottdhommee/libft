@@ -6,7 +6,7 @@
 /*   By: edhommee <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/22 15:08:16 by edhommee          #+#    #+#             */
-/*   Updated: 2017/09/07 20:14:25 by edhommee         ###   ########.fr       */
+/*   Updated: 2017/09/07 20:18:20 by edhommee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,9 @@
 
 void		ft_puttab(char **tab)
 {
-	while (**tab)
-		ft_putendl(*tab++);
+	int		i;
+
+	i = 0;
+	while (tab[i])
+		ft_putendl(tab[i++]);
 }
