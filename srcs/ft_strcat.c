@@ -6,7 +6,7 @@
 /*   By: edhommee <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/07 09:27:47 by edhommee          #+#    #+#             */
-/*   Updated: 2017/05/20 17:24:33 by edhommee         ###   ########.fr       */
+/*   Updated: 2017/09/07 21:37:28 by edhommee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,19 +14,13 @@
 
 char	*ft_strcat(char *dest, const char *src)
 {
-	int		len;
-	int		i;
+	char	*tmp;
 
-	len = 0;
-	i = 0;
-	while (dest[len] != '\0')
-		len++;
-	while (src[i] != '\0')
-	{
-		dest[len] = src[i];
-		i++;
-		len++;
-	}
-	dest[len] = '\0';
+	tmp = dest;
+	while (*tmp)
+		tmp++;
+	while (*src)
+		*tmp++ = *src++;
+	*tmp = '\0';
 	return (dest);
 }
