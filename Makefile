@@ -43,8 +43,8 @@ SRC_NAME	= ft_putchar.c ft_putstr.c ft_strlen.c ft_strcmp.c ft_atoi.c\
 			  ft_strmap.c ft_striteri.c ft_strequ.c ft_strnequ.c ft_strjoin.c\
 			  ft_strmapi.c ft_strsplit.c ft_strtrim.c  ft_reverse.c\
 			  ft_memcpy_rev.c get_next_line.c ft_wchartoa.c ft_itoa_base.c\
-			  ft_strlowcase.c ft_strndup.c \
-			  ft_nbrlen.c ft_tabdup.c\
+			  ft_strlowcase.c ft_strndup.c ft_tabnew.c\
+			  ft_nbrlen.c ft_tabdup.c ft_tablen.c ft_tabndup.c\
 			  ft_strcjoin.c ft_tabdel.c ft_puttab.c ft_getstat.c
 
 LST			= $(addprefix $(LST_DIR),$(LST_SRC))

@@ -1,26 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strcpy.c                                        :+:      :+:    :+:   */
+/*   ft_tabnew.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: edhommee <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/11/07 09:32:10 by edhommee          #+#    #+#             */
-/*   Updated: 2017/09/12 16:09:37 by edhommee         ###   ########.fr       */
+/*   Created: 2017/09/12 10:50:45 by edhommee          #+#    #+#             */
+/*   Updated: 2017/09/12 13:39:25 by edhommee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <libft.h>
 
-char	*ft_strcpy(char *dest, const char *src)
+char		**ft_tabnew(int size)
 {
-	char		*tmp;
+	char		**new;
 
-	tmp = dest;
-	if (dest == src)
-		return (dest);
-	while (*src)
-		*dest++ = *src++;
-	*dest = '\0';
-	return (tmp);
+	if (!(new = ft_memalloc(sizeof(char*) * (size + 1))))
+		return (NULL);
+	return (new);
 }
