@@ -6,7 +6,7 @@
 /*   By: edhommee <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/12 11:51:00 by edhommee          #+#    #+#             */
-/*   Updated: 2017/09/12 13:45:56 by edhommee         ###   ########.fr       */
+/*   Updated: 2017/09/13 13:37:31 by edhommee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 char		**ft_tabndup(char **tab, size_t n)
 {
 	char		**new;
-	int			i;
+	size_t		i;
 
 	if (!(new = ft_tabnew(n)))
 		return (NULL);
