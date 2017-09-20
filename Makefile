@@ -44,7 +44,7 @@ SRC_NAME	= ft_putchar.c ft_putstr.c ft_strlen.c ft_strcmp.c ft_atoi.c\
 			  ft_strmapi.c ft_strsplit.c ft_strtrim.c  ft_reverse.c\
 			  ft_memcpy_rev.c get_next_line.c ft_wchartoa.c ft_itoa_base.c\
 			  ft_strlowcase.c ft_strndup.c ft_tabnew.c ft_tabcpy.c\
-			  ft_nbrlen.c ft_tabdup.c ft_tablen.c ft_tabndup.c get_lstmode.c\
+			  ft_nbrlen.c ft_tabdup.c ft_tablen.c ft_tabndup.c\
 			  ft_strcjoin.c ft_tabdel.c ft_puttab.c ft_getstat.c
 
 LST			= $(addprefix $(LST_DIR),$(LST_SRC))
@@ -59,20 +59,22 @@ OBJ			= $(addprefix $(OBJ_DIR),$(FILES:.c=.o))
 
 INCLUDES	= -I ./includes/
 
+.PHONY: clean fclean re all
+
 all: $(NAME)
 
 $(NAME): obj $(OBJ)
-	ar rc $(NAME) $(OBJ)
+	@ar rc $(NAME) $(OBJ)
 	ranlib $(NAME)
 
 obj:
-	mkdir -p $(OBJ_DIR)
-	mkdir -p $(OBJ_DIR)/lst
-	mkdir -p $(OBJ_DIR)/btree
-	mkdir -p $(OBJ_DIR)/ft_printf
+	@mkdir -p $(OBJ_DIR)
+	@mkdir -p $(OBJ_DIR)$(LST_DIR)
+	@mkdir -p $(OBJ_DIR)$(BTREE_DIR)
+	@mkdir -p $(OBJ_DIR)$(PF_DIR)
 
 $(OBJ_DIR)%.o:$(SRC_DIR)%.c
-	$(CC) $(CFLAGS) $(INCLUDES) -o $@ -c $<
+	@$(CC) $(CFLAGS) $(INCLUDES) -o $@ -c $<
 
 clean:
 	rm -rf $(OBJ_DIR)

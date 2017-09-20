@@ -6,17 +6,20 @@
 /*   By: edhommee <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/24 15:17:57 by edhommee          #+#    #+#             */
-/*   Updated: 2017/09/06 11:24:08 by edhommee         ###   ########.fr       */
+/*   Updated: 2017/09/20 13:45:46 by edhommee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <libft.h>
 
-int			get_stmode(char *pathfile, char opt)
+int			get_stmode(char *pathfile, char opt, int fn)
 {
 	struct stat		file_stat;
 
-	lstat(pathfile, &file_stat);
+	if (fn == 0)
+		lstat(pathfile, &file_stat);
+	else
+		stat(pathfile, &file_stat);
 	if (opt == 'R')
 		return (S_ISREG(file_stat.st_mode));
 	if (opt == 'D')
