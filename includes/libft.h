@@ -6,7 +6,7 @@
 /*   By: edhommee <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/07 09:40:27 by edhommee          #+#    #+#             */
-/*   Updated: 2017/09/20 15:40:07 by edhommee         ###   ########.fr       */
+/*   Updated: 2017/09/25 11:41:05 by edhommee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,10 @@ int					ft_atoi(const char *str);
 char				*ft_itoa(int n);
 char				*ft_itoa_base(uintmax_t n, int base);
 int					get_stmode(char *pathfile, char opt, int fn);
+char				*ft_getenv(char *name);
+int					ft_unsetenv(const char *name);
+int					ft_putenv(char *str);
+int					ft_setenv(const char *name, const char *value, int ov);
 
 void				ft_putchar(char c);
 void				ft_putstr(const char *s);

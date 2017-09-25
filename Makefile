@@ -45,7 +45,8 @@ SRC_NAME	= ft_putchar.c ft_putstr.c ft_strlen.c ft_strcmp.c ft_atoi.c\
 			  ft_memcpy_rev.c get_next_line.c ft_wchartoa.c ft_itoa_base.c\
 			  ft_strlowcase.c ft_strndup.c ft_tabnew.c ft_tabcpy.c\
 			  ft_nbrlen.c ft_tabdup.c ft_tablen.c ft_tabndup.c\
-			  ft_strcjoin.c ft_tabdel.c ft_puttab.c ft_getstat.c
+			  ft_strcjoin.c ft_tabdel.c ft_puttab.c ft_getstat.c \
+			  ft_getenv.c ft_unsetenv.c ft_putenv.c ft_setenv.c
 
 LST			= $(addprefix $(LST_DIR),$(LST_SRC))
 BTREE		= $(addprefix $(BTREE_DIR),$(BTREE_SRC))
