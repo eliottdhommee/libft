@@ -1,24 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstmap.c                                        :+:      :+:    :+:   */
+/*   ft_list_last.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: edhommee <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/11/21 11:24:40 by edhommee          #+#    #+#             */
-/*   Updated: 2017/09/20 13:54:16 by edhommee         ###   ########.fr       */
+/*   Created: 2017/10/10 14:08:05 by edhommee          #+#    #+#             */
+/*   Updated: 2017/10/10 14:10:38 by edhommee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <libft.h>
 
-t_list	*ft_lstmap(t_list *lst, t_list *(f)(t_list *elem))
+t_list		*ft_list_last(t_list *begin_list)
 {
-	t_list	*new;
-
-	if (lst == NULL)
-		return (NULL);
-	new = f(lst);
-	new->next = ft_lstmap(lst->next, f);
-	return (new);
+	while (begin_list)
+	{
+		if (begin_list->next == NULL)
+			return (begin_list);
+		begin_list = begin_list->next;
+	}
+	return (NULL);
 }

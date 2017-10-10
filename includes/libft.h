@@ -6,7 +6,7 @@
 /*   By: edhommee <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/07 09:40:27 by edhommee          #+#    #+#             */
-/*   Updated: 2017/09/25 11:41:05 by edhommee         ###   ########.fr       */
+/*   Updated: 2017/10/10 17:20:32 by edhommee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,6 +86,7 @@ int					ft_memcmp(const void *s1, const void *s2, size_t n);
 void				*ft_memcpy_rev(void *dst, const void *src, size_t len);
 void				*ft_memmove(void *dst, const void *src, size_t len);
 void				*ft_memchr(const void *s, int c, size_t n);
+void				ft_swap_star(void **one, void **two);
 
 int					ft_nbrlen(int nbr);
 char				**ft_tabdup(char **tab);
@@ -124,16 +125,19 @@ void				btree_delete(t_btree *root, void (*del_item)(void*));
 
 typedef	struct		s_list
 {
-	void			*content;
-	size_t			content_size;
+	void			*data;
 	struct s_list	*next;
 }					t_list;
 
-t_list				*ft_lstnew(void const *content, size_t content_size);
-void				ft_lstdelone(t_list **alst, void (*del)(void *, size_t));
-void				ft_lstadd(t_list **alst, t_list *new);
-void				ft_lstdel(t_list **alst, void (*del)(void *, size_t));
-void				ft_lstiter(t_list *lst, void (*f)(t_list *elem));
-t_list				*ft_lstmap(t_list *lst, t_list *(f)(t_list *elem));
+t_list		*ft_create_elem(void *data);
+void		ft_list_push_back(t_list **begin_list, void *data);
+void		ft_list_push_front(t_list **begin_list, void *data);
+int			ft_list_size(t_list *begin_list);
+t_list		*ft_list_last(t_list *begin_list);
+t_list		*ft_tab_to_list(char **tab);
+void		ft_list_del(t_list **begin_list, void (*del_item)(void*));
+t_list		*ft_list_at(t_list *begin_list, unsigned int nb);
+void		ft_list_reverse(t_list **begin_list);
+void		ft_list_foreach(t_list *begin_list, void (*f)(void*));
 
 #endif

@@ -1,20 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstdelone.c                                     :+:      :+:    :+:   */
+/*   ft_list_reverse.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: edhommee <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/11/21 11:19:42 by edhommee          #+#    #+#             */
-/*   Updated: 2017/09/20 13:53:56 by edhommee         ###   ########.fr       */
+/*   Created: 2017/10/10 15:16:34 by edhommee          #+#    #+#             */
+/*   Updated: 2017/10/10 17:20:19 by edhommee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <libft.h>
 
-void	ft_lstdelone(t_list **alst, void (*del)(void *, size_t))
+void		ft_list_reverse(t_list **begin_list)
 {
-	del((*alst)->content, (*alst)->content_size);
-	free(*alst);
-	*alst = NULL;
+	int			size;
+	int			i;
+
+	i = 1;
+	size = ft_list_size(*begin_list) + 1;
+	while (i <= size / 2)
+	{
+		ft_swap_star(&(ft_list_at(*begin_list, i)->data),
+				&(ft_list_at(*begin_list, size - i)->data));
+		i++;
+	}
 }

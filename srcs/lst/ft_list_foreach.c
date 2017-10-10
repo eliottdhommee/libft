@@ -1,23 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstdel.c                                        :+:      :+:    :+:   */
+/*   ft_list_foreach.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: edhommee <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/11/21 11:21:59 by edhommee          #+#    #+#             */
-/*   Updated: 2017/09/20 13:53:46 by edhommee         ###   ########.fr       */
+/*   Created: 2017/10/10 15:48:16 by edhommee          #+#    #+#             */
+/*   Updated: 2017/10/10 15:50:39 by edhommee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <libft.h>
 
-void	ft_lstdel(t_list **alst, void (*del)(void *, size_t))
+void		ft_list_foreach(t_list *begin_list, void (*f)(void*))
 {
-	while (*alst != NULL)
+	while (begin_list)
 	{
-		del((*alst)->content, (*alst)->content_size);
-		free(*alst);
-		*alst = (*alst)->next;
+		(*f)(begin_list->data);
+		begin_list = begin_list->next;
 	}
 }

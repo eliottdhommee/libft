@@ -1,28 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstiter.c                                       :+:      :+:    :+:   */
+/*   ft_list_push_param.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: edhommee <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/11/21 11:23:07 by edhommee          #+#    #+#             */
-/*   Updated: 2017/09/20 13:54:07 by edhommee         ###   ########.fr       */
+/*   Created: 2017/10/10 14:17:20 by edhommee          #+#    #+#             */
+/*   Updated: 2017/10/10 17:03:14 by edhommee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <libft.h>
 
-void	ft_lstiter(t_list *lst, void (*f)(t_list *elem))
+t_list		*ft_tab_to_list(char **tab)
 {
-	t_list	*tmp;
+	t_list		*new_list;
+	int			i;
 
-	tmp = lst;
-	if (lst)
+	i = 0;
+	new_list = NULL;
+	while (tab[i])
 	{
-		while (tmp)
-		{
-			f(tmp);
-			tmp = tmp->next;
-		}
+		ft_list_push_back(&new_list, (void*)ft_strdup(tab[i]));
+		i++;
 	}
+	return (new_list);
 }

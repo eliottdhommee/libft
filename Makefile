@@ -28,8 +28,9 @@ PF_SRC		= ft_printf.c pf_buffering.c pf_charstostr.c pf_convgetters.c\
 			  pf_putconvtobuffer.c pf_setapos.c pf_setprecision.c pf_toolkit.c
 
 LST_DIR		= lst/
-LST_SRC		= ft_lstnew.c ft_lstdelone.c\
-			  ft_lstadd.c ft_lstdel.c ft_lstiter.c ft_lstmap.c
+LST_SRC		= ft_create_elem.c ft_list_push_back.c ft_list_push_front.c\
+			  ft_list_size.c ft_list_last.c ft_list_push_param.c\
+			  ft_list_del.c ft_list_at.c ft_list_reverse.c ft_list_foreach.c\
 
 SRC_NAME	= ft_putchar.c ft_putstr.c ft_strlen.c ft_strcmp.c ft_atoi.c\
 			  ft_strdup.c ft_strclr.c ft_putendl.c ft_putnbr.c ft_strcpy.c\
@@ -46,7 +47,7 @@ SRC_NAME	= ft_putchar.c ft_putstr.c ft_strlen.c ft_strcmp.c ft_atoi.c\
 			  ft_strlowcase.c ft_strndup.c ft_tabnew.c ft_tabcpy.c\
 			  ft_nbrlen.c ft_tabdup.c ft_tablen.c ft_tabndup.c\
 			  ft_strcjoin.c ft_tabdel.c ft_puttab.c ft_getstat.c \
-			  ft_getenv.c ft_unsetenv.c ft_putenv.c ft_setenv.c
+			  ft_getenv.c ft_unsetenv.c ft_putenv.c ft_setenv.c ft_swap_star.c\
 
 LST			= $(addprefix $(LST_DIR),$(LST_SRC))
 BTREE		= $(addprefix $(BTREE_DIR),$(BTREE_SRC))
