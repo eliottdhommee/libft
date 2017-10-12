@@ -1,28 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_list_push_param.c                               :+:      :+:    :+:   */
+/*   ft_list_del.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: edhommee <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/10/10 14:17:20 by edhommee          #+#    #+#             */
-/*   Updated: 2017/10/12 14:49:24 by edhommee         ###   ########.fr       */
+/*   Created: 2017/10/10 14:54:49 by edhommee          #+#    #+#             */
+/*   Updated: 2017/10/12 14:59:48 by edhommee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <libft.h>
 
-t_list		*ft_tab_to_list(char **tab)
+void	ft_lstdel(t_list **begin_list, void (*del_item)(void*))
 {
-	t_list		*new_list;
-	int			i;
+	t_list		*tmp;
+	t_list		*nxt;
 
-	i = 0;
-	new_list = NULL;
-	while (tab[i])
+	tmp = *begin_list;
+	while (tmp)
 	{
-		ft_lstaddback(&new_list, (void*)ft_strdup(tab[i]));
-		i++;
+		nxt = tmp->next;
+		ft_lstdelone(&tmp, del_item);
+		tmp = nxt;
 	}
-	return (new_list);
+	*begin_list = NULL;
 }

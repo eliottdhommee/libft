@@ -1,22 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_list_foreach.c                                  :+:      :+:    :+:   */
+/*   ft_lstdelif.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: edhommee <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/10/10 15:48:16 by edhommee          #+#    #+#             */
-/*   Updated: 2017/10/10 15:50:39 by edhommee         ###   ########.fr       */
+/*   Created: 2017/10/12 15:05:11 by edhommee          #+#    #+#             */
+/*   Updated: 2017/10/12 15:31:53 by edhommee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <libft.h>
 
-void		ft_list_foreach(t_list *begin_list, void (*f)(void*))
+void		ft_lstdelif(t_list **lst, void *dataref, int (*cmp)(void*, void*),
+		void (*del)(void*))
 {
-	while (begin_list)
+	t_list		*prev;
+	t_list		*tmp;
+
+	tmp = *lst;
+	prev = tmp;
+	while (tmp)
 	{
-		(*f)(begin_list->data);
-		begin_list = begin_list->next;
+		if (cmp(dataref, tmp->data) == 0)
+		{
+			if (tmp != *lst)
+				prev->next = tmp->next;
+			else
+				*lst = tmp->next;
+			ft_lstdelone(&tmp, del);
+		}
+		prev = tmp;
+		tmp = tmp->next;
 	}
 }

@@ -1,26 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_list_size.c                                     :+:      :+:    :+:   */
+/*   ft_list_push_back.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: edhommee <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/10/10 13:58:50 by edhommee          #+#    #+#             */
-/*   Updated: 2017/10/10 14:05:34 by edhommee         ###   ########.fr       */
+/*   Created: 2017/10/10 13:45:32 by edhommee          #+#    #+#             */
+/*   Updated: 2017/10/12 14:32:21 by edhommee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <libft.h>
 
-int		ft_list_size(t_list *begin_list)
+void		ft_listaddback(t_list **begin_list, void *data)
 {
-	int		i;
+	t_list		*tmp;
 
-	i = 0;
-	while (begin_list)
+	if (*begin_list)
 	{
-		begin_list = begin_list->next;
-		i++;
+		tmp = *begin_list;
+		while (tmp->next)
+			tmp = tmp->next;
+		tmp->next = ft_lstnew(data);
 	}
-	return (i);
+	else
+		*begin_list = ft_lstnew(data);
 }

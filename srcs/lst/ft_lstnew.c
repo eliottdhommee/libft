@@ -1,28 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_list_reverse.c                                  :+:      :+:    :+:   */
+/*   ft_create_elem.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: edhommee <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/10/10 15:16:34 by edhommee          #+#    #+#             */
-/*   Updated: 2017/10/10 17:20:19 by edhommee         ###   ########.fr       */
+/*   Created: 2017/10/10 13:37:35 by edhommee          #+#    #+#             */
+/*   Updated: 2017/10/12 14:25:16 by edhommee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <libft.h>
 
-void		ft_list_reverse(t_list **begin_list)
+t_list		*ft_lstnew(void *data)
 {
-	int			size;
-	int			i;
+	t_list	*new;
 
-	i = 1;
-	size = ft_list_size(*begin_list) + 1;
-	while (i <= size / 2)
-	{
-		ft_swap_star(&(ft_list_at(*begin_list, i)->data),
-				&(ft_list_at(*begin_list, size - i)->data));
-		i++;
-	}
+	if (!(new = (t_list*)ft_memalloc(sizeof(t_list*))))
+		return (NULL);
+	new->data = data;
+	new->next = NULL;
+	return (new);
 }

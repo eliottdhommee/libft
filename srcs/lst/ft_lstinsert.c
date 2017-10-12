@@ -1,24 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_create_elem.c                                   :+:      :+:    :+:   */
+/*   ft_lstinsert.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: edhommee <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/10/10 13:37:35 by edhommee          #+#    #+#             */
-/*   Updated: 2017/10/10 17:05:06 by edhommee         ###   ########.fr       */
+/*   Created: 2017/10/12 15:44:02 by edhommee          #+#    #+#             */
+/*   Updated: 2017/10/12 16:03:24 by edhommee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <libft.h>
 
-t_list		*ft_create_elem(void *data)
+void		ft_lstinsert(t_list **lst, void *data, int (*cmp)(void*, void*))
 {
-	t_list	*new;
+	t_list		*prev;
+	t_list		*tmp;
 
-	if (!(new = (t_list*)ft_memalloc(sizeof(t_list*))))
-		return (NULL);
-	new->data = data;
-	new->next = NULL;
-	return (new);
+	tmp = *lst;
+	prev = NULL;
+	while (tmp && cmp(data, tmp->data) >= 0)
+	{
+		prev = tmp;
+		tmp = tmp->next;
+	}
+	if (!prev)
+	{
+		prev = ft_lstnew(data);
+		prev->next = *lst;
+		*lst = prev;
+	}
+	else
+	{
+		prev->next = ft_lstnew(data);
+		prev->next->next = tmp;
+	}
 }

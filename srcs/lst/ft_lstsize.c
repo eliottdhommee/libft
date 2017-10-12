@@ -1,28 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_list_push_param.c                               :+:      :+:    :+:   */
+/*   ft_list_size.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: edhommee <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/10/10 14:17:20 by edhommee          #+#    #+#             */
-/*   Updated: 2017/10/12 14:49:24 by edhommee         ###   ########.fr       */
+/*   Created: 2017/10/10 13:58:50 by edhommee          #+#    #+#             */
+/*   Updated: 2017/10/12 18:57:13 by edhommee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <libft.h>
 
-t_list		*ft_tab_to_list(char **tab)
+int		ft_lstsize(t_list *begin_list)
 {
-	t_list		*new_list;
-	int			i;
+	int		i;
+	t_list	*tmp;
 
 	i = 0;
-	new_list = NULL;
-	while (tab[i])
+	tmp = begin_list;
+	while (tmp)
 	{
-		ft_lstaddback(&new_list, (void*)ft_strdup(tab[i]));
+		tmp = tmp->next;
 		i++;
 	}
-	return (new_list);
+	return (i);
 }

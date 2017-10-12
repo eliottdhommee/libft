@@ -28,9 +28,10 @@ PF_SRC		= ft_printf.c pf_buffering.c pf_charstostr.c pf_convgetters.c\
 			  pf_putconvtobuffer.c pf_setapos.c pf_setprecision.c pf_toolkit.c
 
 LST_DIR		= lst/
-LST_SRC		= ft_create_elem.c ft_list_push_back.c ft_list_push_front.c\
-			  ft_list_size.c ft_list_last.c ft_list_push_param.c\
-			  ft_list_del.c ft_list_at.c ft_list_reverse.c ft_list_foreach.c\
+LST_SRC		= ft_lstnew.c ft_lstaddback.c ft_lstadd.c ft_lstdelone.c\
+			  ft_lstsize.c ft_lstlast.c ft_list_push_param.c\
+			  ft_lstdel.c ft_list_at.c ft_lstrev.c ft_lstiter.c\
+			  ft_lstdelif.c ft_lstsort.c ft_lstinsert.c ft_lstfind.c
 
 SRC_NAME	= ft_putchar.c ft_putstr.c ft_strlen.c ft_strcmp.c ft_atoi.c\
 			  ft_strdup.c ft_strclr.c ft_putendl.c ft_putnbr.c ft_strcpy.c\

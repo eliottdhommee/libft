@@ -1,28 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_list_push_param.c                               :+:      :+:    :+:   */
+/*   ft_list_push_front.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: edhommee <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/10/10 14:17:20 by edhommee          #+#    #+#             */
-/*   Updated: 2017/10/12 14:49:24 by edhommee         ###   ########.fr       */
+/*   Created: 2017/10/10 13:53:52 by edhommee          #+#    #+#             */
+/*   Updated: 2017/10/12 14:33:33 by edhommee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <libft.h>
 
-t_list		*ft_tab_to_list(char **tab)
+void		ft_listadd(t_list **begin_list, void *data)
 {
-	t_list		*new_list;
-	int			i;
+	t_list		*tmp;
 
-	i = 0;
-	new_list = NULL;
-	while (tab[i])
+	if (*begin_list)
 	{
-		ft_lstaddback(&new_list, (void*)ft_strdup(tab[i]));
-		i++;
+		tmp = ft_lstnew(data);
+		tmp->next = *begin_list;
+		*begin_list = tmp;
 	}
-	return (new_list);
+	else
+		*begin_list = ft_lstnew(data);
 }

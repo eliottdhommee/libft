@@ -1,28 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_list_push_param.c                               :+:      :+:    :+:   */
+/*   ft_lstsort.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: edhommee <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/10/10 14:17:20 by edhommee          #+#    #+#             */
-/*   Updated: 2017/10/12 14:49:24 by edhommee         ###   ########.fr       */
+/*   Created: 2017/10/12 15:32:58 by edhommee          #+#    #+#             */
+/*   Updated: 2017/10/12 15:40:16 by edhommee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <libft.h>
 
-t_list		*ft_tab_to_list(char **tab)
+void		ft_lstsort(t_list **lst, int (*cmp)(void*, void*))
 {
-	t_list		*new_list;
-	int			i;
+	t_list		*tmp;
 
-	i = 0;
-	new_list = NULL;
-	while (tab[i])
+	tmp = *lst;
+	while (tmp)
 	{
-		ft_lstaddback(&new_list, (void*)ft_strdup(tab[i]));
-		i++;
+		if (cmp(tmp->data, tmp->next->data))
+		{
+			ft_swap_star(&(tmp->data), &(tmp->next->data));
+			tmp = *lst;
+		}
+		else
+			tmp = tmp->next;
 	}
-	return (new_list);
 }

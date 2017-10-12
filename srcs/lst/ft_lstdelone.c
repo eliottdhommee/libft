@@ -1,28 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_list_push_back.c                                :+:      :+:    :+:   */
+/*   ft_lstdelone.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: edhommee <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/10/10 13:45:32 by edhommee          #+#    #+#             */
-/*   Updated: 2017/10/10 17:05:56 by edhommee         ###   ########.fr       */
+/*   Created: 2017/10/12 14:53:30 by edhommee          #+#    #+#             */
+/*   Updated: 2017/10/12 14:57:51 by edhommee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <libft.h>
 
-void		ft_list_push_back(t_list **begin_list, void *data)
+void		ft_lstdelone(t_list **lst, void (*del)(void*))
 {
-	t_list		*tmp;
-
-	if (*begin_list)
+	if (*lst)
 	{
-		tmp = *begin_list;
-		while (tmp->next)
-			tmp = tmp->next;
-		tmp->next = ft_create_elem(data);
+		del((*lst)->data);
+		free(*lst);
+		*lst = NULL;
 	}
-	else
-		*begin_list = ft_create_elem(data);
 }
