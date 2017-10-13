@@ -6,7 +6,7 @@
 /*   By: edhommee <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/10/10 14:08:05 by edhommee          #+#    #+#             */
-/*   Updated: 2017/10/10 14:10:38 by edhommee         ###   ########.fr       */
+/*   Updated: 2017/10/13 14:59:50 by edhommee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,11 +14,14 @@
 
 t_list		*ft_list_last(t_list *begin_list)
 {
-	while (begin_list)
+	t_list		*list;
+
+	list = begin_list;
+	while (list)
 	{
-		if (begin_list->next == NULL)
-			return (begin_list);
-		begin_list = begin_list->next;
+		if (list->next == NULL)
+			return (list);
+		list = list->next;
 	}
 	return (NULL);
 }

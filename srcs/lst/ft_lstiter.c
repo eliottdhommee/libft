@@ -6,7 +6,7 @@
 /*   By: edhommee <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/10/10 15:48:16 by edhommee          #+#    #+#             */
-/*   Updated: 2017/10/12 14:36:19 by edhommee         ###   ########.fr       */
+/*   Updated: 2017/10/13 15:00:35 by edhommee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,12 @@
 
 void		ft_lstiter(t_list *begin_list, void (*f)(t_list *elem))
 {
-	while (begin_list)
+	t_list		*list;
+
+	list = begin_list;
+	while (list)
 	{
-		(*f)(begin_list);
-		begin_list = begin_list->next;
+		(*f)(list);
+		list = list->next;
 	}
 }

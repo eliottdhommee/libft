@@ -6,7 +6,7 @@
 /*   By: edhommee <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/10/12 15:44:02 by edhommee          #+#    #+#             */
-/*   Updated: 2017/10/12 16:03:24 by edhommee         ###   ########.fr       */
+/*   Updated: 2017/10/13 15:09:07 by edhommee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@ void		ft_lstinsert(t_list **lst, void *data, int (*cmp)(void*, void*))
 {
 	t_list		*prev;
 	t_list		*tmp;
+	t_list		*new;
 
 	tmp = *lst;
 	prev = NULL;
@@ -26,13 +27,14 @@ void		ft_lstinsert(t_list **lst, void *data, int (*cmp)(void*, void*))
 	}
 	if (!prev)
 	{
-		prev = ft_lstnew(data);
-		prev->next = *lst;
-		*lst = prev;
+		new = ft_lstnew(data);
+		new->next = *lst;
+		*lst = new;
 	}
 	else
 	{
-		prev->next = ft_lstnew(data);
-		prev->next->next = tmp;
+		new = ft_lstnew(data);
+		new->next = tmp;
+		prev->next = new;
 	}
 }
