@@ -31,7 +31,8 @@ LST_DIR		= lst/
 LST_SRC		= ft_lstnew.c ft_lstaddback.c ft_lstadd.c ft_lstdelone.c\
 			  ft_lstsize.c ft_lstlast.c ft_list_push_param.c\
 			  ft_lstdel.c ft_list_at.c ft_lstrev.c ft_lstiter.c\
-			  ft_lstdelif.c ft_lstsort.c ft_lstinsert.c ft_lstfind.c
+			  ft_lstdelif.c ft_lstsort.c ft_lstinsert.c ft_lstfind.c\
+			  ft_deli.c
 
 SRC_NAME	= ft_putchar.c ft_putstr.c ft_strlen.c ft_strcmp.c ft_atoi.c\
 			  ft_strdup.c ft_strclr.c ft_putendl.c ft_putnbr.c ft_strcpy.c\
