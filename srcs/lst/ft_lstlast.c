@@ -6,13 +6,13 @@
 /*   By: edhommee <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/10/10 14:08:05 by edhommee          #+#    #+#             */
-/*   Updated: 2017/10/13 14:59:50 by edhommee         ###   ########.fr       */
+/*   Updated: 2017/12/08 16:42:12 by edhommee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <libft.h>
+#include <liblst.h>
 
-t_list		*ft_list_last(t_list *begin_list)
+t_list		*ft_lstlast(t_list *begin_list)
 {
 	t_list		*list;
 

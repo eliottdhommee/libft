@@ -29,12 +29,13 @@ PF_SRC		= ft_printf.c pf_buffering.c pf_charstostr.c pf_convgetters.c\
 
 LST_DIR		= lst/
 LST_SRC		= ft_lstnew.c ft_lstaddback.c ft_lstadd.c ft_lstdelone.c\
-			  ft_lstsize.c ft_lstlast.c ft_list_push_param.c\
-			  ft_lstdel.c ft_list_at.c ft_lstrev.c ft_lstiter.c\
+			  ft_lstsize.c ft_lstlast.c ft_tabtolst.c\
+			  ft_lstdel.c ft_lstat.c ft_lstrev.c ft_lstiter.c\
 			  ft_lstdelif.c ft_lstsort.c ft_lstinsert.c ft_lstfind.c\
-			  ft_deli.c
+			  ft_deli.c ft_deliend.c
 
-SRC_NAME	= ft_putchar.c ft_putstr.c ft_strlen.c ft_strcmp.c ft_atoi.c\
+CLASSIC_DIR		= classic/
+CLASSIC_SRC	= ft_putchar.c ft_putstr.c ft_strlen.c ft_strcmp.c ft_atoi.c\
 			  ft_strdup.c ft_strclr.c ft_putendl.c ft_putnbr.c ft_strcpy.c\
 			  ft_strncpy.c ft_strcat.c ft_memset.c ft_bzero.c ft_isdigit.c\
 			  ft_memcpy.c ft_memccpy.c ft_isalpha.c ft_isalnum.c ft_toupper.c\
@@ -54,7 +55,8 @@ SRC_NAME	= ft_putchar.c ft_putstr.c ft_strlen.c ft_strcmp.c ft_atoi.c\
 LST			= $(addprefix $(LST_DIR),$(LST_SRC))
 BTREE		= $(addprefix $(BTREE_DIR),$(BTREE_SRC))
 PF			= $(addprefix $(PF_DIR),$(PF_SRC))
-FILES		= $(LST) $(BTREE) $(PF) $(SRC_NAME)
+CLASSIC		= $(addprefix $(CLASSIC_DIR),$(CLASSIC_SRC))
+FILES		= $(LST) $(BTREE) $(PF) $(CLASSIC)
 
 SRC			= $(addprefix $(SRC_DIR),$(FILES))
 
@@ -69,16 +71,17 @@ all: $(NAME)
 
 $(NAME): obj $(OBJ)
 	@ar rc $(NAME) $(OBJ)
-	ranlib $(NAME)
+	@ranlib $(NAME)
 
 obj:
-	@mkdir -p $(OBJ_DIR)
-	@mkdir -p $(OBJ_DIR)$(LST_DIR)
-	@mkdir -p $(OBJ_DIR)$(BTREE_DIR)
-	@mkdir -p $(OBJ_DIR)$(PF_DIR)
+	mkdir -p $(OBJ_DIR)
+	mkdir -p $(OBJ_DIR)$(LST_DIR)
+	mkdir -p $(OBJ_DIR)$(BTREE_DIR)
+	mkdir -p $(OBJ_DIR)$(PF_DIR)
+	mkdir -p $(OBJ_DIR)$(CLASSIC_DIR)
 
 $(OBJ_DIR)%.o:$(SRC_DIR)%.c
-	@$(CC) $(CFLAGS) $(INCLUDES) -o $@ -c $<
+	$(CC) $(CFLAGS) $(INCLUDES) -o $@ -c $<
 
 clean:
 	rm -rf $(OBJ_DIR)

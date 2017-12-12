@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <libft.h>
+#include <libbtree.h>
 
 void		btree_delete(t_btree *root, void (*del_item)(void*))
 {

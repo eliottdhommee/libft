@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <libft.h>
+#include <liblst.h>
 
 int		ft_lstsize(t_list *begin_list)
 {

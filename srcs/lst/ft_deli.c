@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <libft.h>
+#include <liblst.h>
 
 void		ft_deli(t_list **list, unsigned int i, void (*del)(void*))
 {

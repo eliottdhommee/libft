@@ -6,13 +6,13 @@
 /*   By: edhommee <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/10/10 13:45:32 by edhommee          #+#    #+#             */
-/*   Updated: 2017/10/12 14:32:21 by edhommee         ###   ########.fr       */
+/*   Updated: 2017/12/12 15:17:05 by edhommee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <libft.h>
+#include <liblst.h>
 
-void		ft_listaddback(t_list **begin_list, void *data)
+void		ft_lstaddback(t_list **begin_list, void *data)
 {
 	t_list		*tmp;
 

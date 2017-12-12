@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <libft.h>
+#include <libbtree.h>
 
 static int	ft_max(int a, int b)
 {

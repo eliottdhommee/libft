@@ -1,23 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   btree_apply_infix.c                                :+:      :+:    :+:   */
+/*   ft_deliend.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: edhommee <eliottdhommee@gmail.com>         +#+  +:+       +#+        */
+/*   By: edhommee <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/07/13 11:29:20 by edhommee          #+#    #+#             */
-/*   Updated: 2017/09/20 13:51:54 by edhommee         ###   ########.fr       */
+/*   Created: 2017/12/12 17:34:23 by edhommee          #+#    #+#             */
+/*   Updated: 2017/12/12 17:36:45 by edhommee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <libbtree.h>
+#include <liblst.h>
 
-void		btree_apply_infix(t_btree *root, void (*applyf)(void*))
+void		ft_delie(t_list **list, unsigned int i, void (*del)(void*))
 {
-	if (root)
-	{
-		btree_apply_infix(root->left, applyf);
-		applyf(root->item);
-		btree_apply_infix(root->right, applyf);
-	}
+	ft_deli(list, ft_lstsize(*list) - i, del);
 }
