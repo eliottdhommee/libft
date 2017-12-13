@@ -6,14 +6,14 @@
 /*   By: edhommee <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/12 17:08:39 by edhommee          #+#    #+#             */
-/*   Updated: 2017/12/12 20:18:30 by edhommee         ###   ########.fr       */
+/*   Updated: 2017/12/13 17:57:51 by edhommee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef LIBLST_H
 # define LIBLST_H
 
-#include <libft.h>
+# include <libft.h>
 
 typedef	struct		s_list
 {
@@ -33,6 +33,8 @@ int					ft_lstsize(t_list *begin_list);
 t_list				*ft_lstlast(t_list *begin_list);
 t_list				*ft_lstat(t_list *begin_list, unsigned int nb);
 t_list				*ft_lstfind(t_list *begin, void *dataref,
+		int (*cmp)(void*, void*));
+int					ft_lstfindi(t_list *begin, void *dataref,
 		int (*cmp)(void*, void*));
 
 void				ft_lstsort(t_list **lst, int (*cmp)(void*, void*));
