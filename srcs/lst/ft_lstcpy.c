@@ -1,28 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstfindi.c                                      :+:      :+:    :+:   */
+/*   ft_lstcpy.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: edhommee <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/12/13 17:54:55 by edhommee          #+#    #+#             */
-/*   Updated: 2018/03/03 20:30:26 by edhommee         ###   ########.fr       */
+/*   Created: 2018/03/03 16:50:51 by edhommee          #+#    #+#             */
+/*   Updated: 2018/03/03 17:30:22 by edhommee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <liblst.h>
 
-int		ft_lstfindi(t_list *begin, void *dataref, int (*cmp)(void*, void*))
+t_list		*ft_lstcpy(t_list *list)
 {
-	t_list		*list;
-	int			i;
+	t_list		*new;
 
-	i = 0;
-	list = begin;
-	while (list && cmp(dataref, list->data) != 0)
+	new = NULL;
+	while (list)
 	{
+		ft_lstaddback(&new, list->data);
 		list = list->next;
-		i++;
 	}
-	return (i);
+	return (new);
 }

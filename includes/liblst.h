@@ -6,7 +6,7 @@
 /*   By: edhommee <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/12 17:08:39 by edhommee          #+#    #+#             */
-/*   Updated: 2017/12/13 17:57:51 by edhommee         ###   ########.fr       */
+/*   Updated: 2018/03/03 16:57:46 by edhommee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,7 @@ typedef	struct		s_list
 
 t_list				*ft_lstnew(void *data);
 t_list				*ft_tabtolst(char **tab);
+t_list				*ft_lstcpy(t_list *list);
 
 void				ft_lstadd(t_list **begin_list, void *data);
 void				ft_lstaddback(t_list **begin_list, void *data);

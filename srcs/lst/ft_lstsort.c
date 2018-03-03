@@ -6,7 +6,7 @@
 /*   By: edhommee <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/10/12 15:32:58 by edhommee          #+#    #+#             */
-/*   Updated: 2017/10/12 15:40:16 by edhommee         ###   ########.fr       */
+/*   Updated: 2018/03/03 18:37:34 by edhommee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,9 +17,9 @@ void		ft_lstsort(t_list **lst, int (*cmp)(void*, void*))
 	t_list		*tmp;
 
 	tmp = *lst;
-	while (tmp)
+	while (tmp && tmp->next)
 	{
-		if (cmp(tmp->data, tmp->next->data))
+		if (cmp(tmp->data, tmp->next->data) > 0)
 		{
 			ft_swap_star(&(tmp->data), &(tmp->next->data));
 			tmp = *lst;

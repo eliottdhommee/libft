@@ -6,7 +6,7 @@
 /*   By: edhommee <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/07 09:40:27 by edhommee          #+#    #+#             */
-/*   Updated: 2017/12/12 17:16:39 by edhommee         ###   ########.fr       */
+/*   Updated: 2018/03/03 19:10:23 by edhommee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -102,5 +102,6 @@ int					ft_isalpha(int c);
 int					ft_isalnum(int c);
 int					ft_isascii(int c);
 int					ft_isprint(int c);
+int					ft_isnumber(char *src);
 
 #endif

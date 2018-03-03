@@ -32,7 +32,7 @@ LST_SRC		= ft_lstnew.c ft_lstaddback.c ft_lstadd.c ft_lstdelone.c\
 			  ft_lstsize.c ft_lstlast.c ft_tabtolst.c\
 			  ft_lstdel.c ft_lstat.c ft_lstrev.c ft_lstiter.c\
 			  ft_lstdelif.c ft_lstsort.c ft_lstinsert.c ft_lstfind.c\
-			  ft_deli.c ft_deliend.c ft_lstfindi.c
+			  ft_deli.c ft_deliend.c ft_lstfindi.c ft_lstcpy.c
 
 CLASSIC_DIR		= classic/
 CLASSIC_SRC	= ft_putchar.c ft_putstr.c ft_strlen.c ft_strcmp.c ft_atoi.c\
@@ -51,6 +51,7 @@ CLASSIC_SRC	= ft_putchar.c ft_putstr.c ft_strlen.c ft_strcmp.c ft_atoi.c\
 			  ft_nbrlen.c ft_tabdup.c ft_tablen.c ft_tabndup.c\
 			  ft_strcjoin.c ft_tabdel.c ft_puttab.c ft_getstat.c \
 			  ft_getenv.c ft_unsetenv.c ft_putenv.c ft_setenv.c ft_swap_star.c\
+			  ft_isnumber.c
 
 LST			= $(addprefix $(LST_DIR),$(LST_SRC))
 BTREE		= $(addprefix $(BTREE_DIR),$(BTREE_SRC))
