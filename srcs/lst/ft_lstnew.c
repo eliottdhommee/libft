@@ -6,11 +6,12 @@
 /*   By: edhommee <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/10/10 13:37:35 by edhommee          #+#    #+#             */
-/*   Updated: 2017/10/12 14:25:16 by edhommee         ###   ########.fr       */
+/*   Updated: 2018/03/09 21:08:46 by edhommee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <liblst.h>
+#include <libft.h>
 
 t_list		*ft_lstnew(void *data)
 {

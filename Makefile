@@ -85,10 +85,6 @@ obj:
 $(OBJ_DIR)%.o:$(SRC_DIR)%.c
 	$(CC) $(CFLAGS) $(INCLUDES) -o $@ -c $<
 
-norme:
-	norminette $(SRC_DIR)
-	norminette $(INC)
-
 clean:
 	rm -rf $(OBJ_DIR)
 

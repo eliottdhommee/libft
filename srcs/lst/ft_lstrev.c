@@ -6,11 +6,12 @@
 /*   By: edhommee <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/10/10 15:16:34 by edhommee          #+#    #+#             */
-/*   Updated: 2017/12/12 17:39:40 by edhommee         ###   ########.fr       */
+/*   Updated: 2018/03/09 21:09:41 by edhommee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <liblst.h>
+#include <libft.h>
 
 void		ft_lstrev(t_list **begin_list)
 {

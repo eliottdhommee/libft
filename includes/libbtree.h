@@ -6,14 +6,14 @@
 /*   By: edhommee <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/12 17:15:06 by edhommee          #+#    #+#             */
-/*   Updated: 2017/12/13 15:29:18 by edhommee         ###   ########.fr       */
+/*   Updated: 2018/03/09 21:27:16 by edhommee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef LIBBTREE_H
 # define LIBBTREE_H
 
-# include <libft.h>
+# include <stdlib.h>
 
 typedef	struct		s_btree
 {

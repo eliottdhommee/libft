@@ -6,11 +6,12 @@
 /*   By: edhommee <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/10/10 14:17:20 by edhommee          #+#    #+#             */
-/*   Updated: 2017/12/12 17:28:53 by edhommee         ###   ########.fr       */
+/*   Updated: 2018/03/09 21:10:48 by edhommee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <liblst.h>
+#include <libft.h>
 
 t_list		*ft_tabtolst(char **tab)
 {
