@@ -32,7 +32,8 @@ LST_SRC		= ft_lstnew.c ft_lstaddback.c ft_lstadd.c ft_lstdelone.c\
 			  ft_lstsize.c ft_lstlast.c ft_tabtolst.c ft_lstdel.c ft_lstat.c \
 			  ft_lstrev.c ft_lstiter.c ft_lstdelif.c ft_lstsort.c \
 			  ft_lstinsert.c ft_lstfind.c ft_deli.c ft_deliend.c \
-			  ft_lstfindi.c ft_lstcpy.c ft_lstfindnext.c ft_lstsplit.c
+			  ft_lstfindi.c ft_lstcpy.c ft_lstfindnext.c ft_lstsplit.c \
+			  ft_lstsub.c ft_lstsubn.c
 
 CLASSIC_DIR		= classic/
 CLASSIC_SRC	= ft_putchar.c ft_putstr.c ft_strlen.c ft_strcmp.c ft_atoi.c\

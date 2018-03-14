@@ -6,7 +6,7 @@
 /*   By: edhommee <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/12 17:08:39 by edhommee          #+#    #+#             */
-/*   Updated: 2018/03/10 17:19:40 by edhommee         ###   ########.fr       */
+/*   Updated: 2018/03/14 18:28:27 by edhommee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,12 @@ t_list				*ft_tabtolst(char **tab);
 t_list				*ft_lstcpy(t_list *list);
 t_list				*ft_lstsplit(t_list *lst, void *dataref,
 		int (*cmp)(void*, void*), void (*del)(void*));
+
+/*
+** EXTRACT
+*/
+t_list				*ft_lstsub(t_list **list, int i);
+t_list				*ft_lstsubn(t_list **list, int i, int len);
 
 /*
 **	DELETION
