@@ -21,6 +21,8 @@ include settings.mk
 
 INC			= ./includes/
 INCLUDES	= -I $(INC)
+C = 0
+T = $(words $(FILES))
 
 .PHONY: clean fclean re all
 
@@ -37,6 +39,8 @@ $(OBJ_DIR):
 
 $(OBJ_DIR)%.o:$(SRC_DIR)%.c
 	@$(CC) $(CFLAGS) $(INCLUDES) -o $@ -c $<
+	$(eval C=$(shell echo $$(($(C)+1))))
+	@python3 echo_progress.py --file=$(NAME) --stepno=$C --nsteps=$T
 
 clean:
 	@rm -rf $(OBJ_DIR)

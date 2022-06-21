@@ -136,8 +136,8 @@ CLASSIC_SRC	=	ft_atoi.c \
 FILES		=	$(addprefix $(LST_DIR),$(LST_SRC))\
 				$(addprefix $(BTREE_DIR),$(BTREE_SRC))\
 				$(addprefix $(RBTREE_DIR),$(RBTREE_SRC))\
-				$(addprefix $(PF_DIR),$(PF_SRC))\
 				$(addprefix $(CLASSIC_DIR),$(CLASSIC_SRC))\
+				#$(addprefix $(PF_DIR),$(PF_SRC))
 
 SRC			=	$(addprefix $(SRC_DIR),$(FILES))
 OBJ_DIR		=	./obj/

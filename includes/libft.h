@@ -6,7 +6,7 @@
 /*   By: edhommee <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/07 09:40:27 by edhommee          #+#    #+#             */
-/*   Updated: 2018/03/03 19:10:23 by edhommee         ###   ########.fr       */
+/*   Updated: 2022/06/10 10:16:50 by edhommee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@
 # include <sys/stat.h>
 # include <unistd.h>
 # include <sys/types.h>
+# include <stdint.h>
 # include <stdlib.h>
 # include <wchar.h>
 
